@@ -1,0 +1,19 @@
+func majorityElement(nums []int) int {
+    var numsMap map[int]int = make(map[int]int)
+
+    length := len(nums)
+
+    for _, n := range nums {
+        value, ok := numsMap[n]
+        if value >= length/2 {
+            return n
+        }
+        if (ok) {
+            numsMap[n] += 1
+        } else {
+            numsMap[n] = 1
+        }
+    }
+
+    return 0
+}
